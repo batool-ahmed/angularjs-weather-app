@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Weather App</title>
+        <link rel="icon" href="assets/images/rain.png" type="image/x-icon">
+
+        <link rel="stylesheet" href="style.css">
+        
+
+        <!-- Angular CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    
+    <body ng-app="weatherApp" ng-controller="mainController">
+        <div class="center" id="content-div" ng-class="{'content-div-full': showWeather}">
+            <div id="current-weather-container">
+                <div id="current-weather-details-div">
+                    <!-- Location Search -->
+                    <div id="location-search">
+                        <input ng-model="location" placeholder="Enter Location"/>
+
+                        <button ng-click="getWeather()">
+                            <img src="assets/images/search.png" width="30px" id="search-image"/>
+                        </button>
+                    </div>
+                    
+                    <!-- Current Weather -->
+                    <div ng-show="showWeather">
+                        <img ng-src="https://openweathermap.org/img/w/{{ currentWeather.icon }}.png" alt="{{ currentWeatherData.description }}" class="weather-image">
+                        <h2>{{ currentWeather.description }}</h2>
+                    </div>
+                </div>
+
+                <div id="current-temperature-div" ng-show="showWeather">
+                    <h1 id="current-temperature" >{{ currentWeather.temperature }}°C</h1>
+                    <p id="below-temp-row"><span class="red-text">Wind speed</span> {{ currentWeather.wind }} kts <span class="red-text">Humidity</span> {{ currentWeather.humidity }}%</p>
+                </div>
+            </div>
+
+            <!-- Displaying error -->
+            <i><h2 ng-bind="error" class="red-text" id="error"></h2></i>
+
+            <!-- Upcoming Weather Forecast -->
+            <div ng-show="showWeather">
+                <h3 id="upcoming-weather-heading">Upcoming Weather Forecasts</h3>
+                <hr/>
+                <ul class="no-bullets">
+                    <li ng-repeat="forecast in weatherNextFive">
+                        <div class="next-weather-box" >
+                            <p>{{ forecast.date }}</p>
+                            <p class="red-text">{{ forecast.time }}</p> 
+                            <img ng-src="https://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="Weather Icon">
+                            <p>{{ forecast.temperature }}°C</p> 
+                        </div>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+        
+        <script src="main.js"></script>
+    </body>
+</html>
