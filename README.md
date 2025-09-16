@@ -1,6 +1,9 @@
 ﻿# AngularJS Weather App
 This app fetches and displays the weather using https://openweathermap.org/ API.
 
+# App
+https://batool-ahmed.github.io/angularjs-weather-app/
+
 ## Languages and Frameworks used
 - HTML
 - CSS
@@ -17,6 +20,7 @@ This app fetches and displays the weather using https://openweathermap.org/ API.
 NOTE: 1 kts = 1.852 km/h
 
 ## Testing the App
+- Link to app: https://batool-ahmed.github.io/angularjs-weather-app/
 - You can test the app by entering the name of a location you want to get the weather for
 - You can check on https://openweathermap.org/find if the location you have entered exists in OpenWeatherMap
 
@@ -30,3 +34,4 @@ NOTE: 1 kts = 1.852 km/h
 - ng-src
 - ng-class
 - ng-bind
+
